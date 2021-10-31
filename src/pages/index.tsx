@@ -1,5 +1,5 @@
-import Main from '../components/Main'
+import LoginTemplate from 'components/Templates/Login'
 
 export default function Home() {
-  return <Main />
+  return <LoginTemplate />
 }
