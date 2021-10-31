@@ -9,7 +9,7 @@ interface IFormInputs {
 }
 
 const LoginCard = () => {
-  const { handleSubmit, register, control } = useForm<IFormInputs>()
+  const { handleSubmit, control } = useForm<IFormInputs>()
 
   const submitLogin: SubmitHandler<IFormInputs> = (data) => console.log(data)
 
@@ -41,11 +41,7 @@ const LoginCard = () => {
           />
 
           <S.ButtonContainer>
-            <button type="submit">go</button>
-            {/* <Button
-              content="Entrar"
-              onClick={(): void => console.log('click')}
-            /> */}
+            <Button content="Entrar" />
           </S.ButtonContainer>
         </form>
         <S.FormHelper>
