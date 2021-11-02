@@ -9,13 +9,17 @@ const AppHeader = ({
   headerHeight = '68px',
   imageHeight = '31px',
   imageWidth = '95px',
-  imageMargin = '0 0 0 3%'
+  imageMargin = '0 0 0 3%',
+  scroll = 0
 }) => {
   const router = useRouter()
 
   return (
     <>
-      <S.Header background={background} height={headerHeight}>
+      <S.Header
+        background={scroll == 10 ? background : 'rgb(20, 20, 20)'}
+        height={headerHeight}
+      >
         <S.HeaderContainer>
           <S.LeftContainer>
             <S.LogoContainer imageMargin={imageMargin}>

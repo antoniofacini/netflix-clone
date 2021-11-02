@@ -7,10 +7,8 @@ export const Div = styled.div`
 `
 export const MainContent = styled.div`
   position: absolute;
-  top: 70px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
 `

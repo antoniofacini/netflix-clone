@@ -2,14 +2,13 @@ import * as S from './styles'
 import AppCarousel from '../AppCarousel'
 
 const AppCarouselContainer = () => {
-  console.log('aqui')
   return (
-    <div>
-      <AppCarousel />
-      <AppCarousel />
-      <AppCarousel />
-      <AppCarousel />
-    </div>
+    <S.Div>
+      <AppCarousel title="Filmes" />
+      <AppCarousel title="Aventura" />
+      <AppCarousel title="Terror" />
+      <AppCarousel title="Continue assistindo" />
+    </S.Div>
   )
 }
 

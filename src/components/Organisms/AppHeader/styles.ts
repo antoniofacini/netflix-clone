@@ -11,13 +11,14 @@ export interface LogoContainerProps {
 export const Header = styled.header<HeaderProps>`
   background: ${(p) => p.background};
   padding: 0 4%;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: ${(p) => p.height};
   display: flex;
   align-items: center;
+  z-index: 99;
 `
 export const HeaderContainer = styled.div`
   display: flex;
