@@ -22,15 +22,22 @@
     "@emotion/react": "^11.5.0",
     "@emotion/style": "^0.8.0",
     "@material-ui/core": "^5.0.0-beta.5",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/styled-engine-sc": "^5.0.0-beta.5",
+    "@types/jsonwebtoken": "^8.5.5",
     "axios": "^0.24.0",
     "eslint": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "keen-slider": "^5.5.1",
     "next": "11.1.2",
+    "next-auth": "^3.29.0",
+    "next-iron-session": "^4.2.0",
     "next-pwa": "^5.4.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.18.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "swr": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

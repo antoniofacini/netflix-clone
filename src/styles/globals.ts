@@ -16,6 +16,8 @@ html,body,#__next{
 
 body{
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-color: #141414;
+
 }
 `
 

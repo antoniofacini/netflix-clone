@@ -1,0 +1,108 @@
+import { useState } from 'react'
+import * as S from './styles'
+import AppCard from '../../Molecules/AppCard'
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
+import { MouseEventHandler } from 'react-transition-group/node_modules/@types/react'
+
+const AppCarousel = (props: any) => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
+    initial: 0,
+    slideChanged(s) {
+      setCurrentSlide(s.details().relativeSlide)
+    },
+    spacing: 10,
+    slidesPerView: 2,
+    centered: true,
+    loop: true,
+    breakpoints: {
+      '(min-width: 768px)': {
+        slidesPerView: 4
+      },
+      '(min-width: 1200px)': {
+        slidesPerView: 5
+      }
+    }
+  })
+  return (
+    <S.CssContext>
+      <div className="navigation-wrapper">
+        {slider && (
+          <div className="dots">
+            {[...Array(slider.details().size).keys()].map((idx) => {
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    slider.moveToSlideRelative(idx)
+                  }}
+                  className={'dot' + (currentSlide === idx ? ' active' : '')}
+                />
+              )
+            })}
+          </div>
+        )}
+        <S.Div ref={sliderRef} className="keen-slider">
+          <S.Slide className="keen-slider__slide ">
+            <AppCard />
+          </S.Slide>
+          <div className="keen-slider__slide">
+            <AppCard />
+          </div>
+          <div className="keen-slider__slide">
+            <AppCard />
+          </div>
+          <div className="keen-slider__slide">
+            <AppCard />
+          </div>
+          <div className="keen-slider__slide">
+            <AppCard />
+          </div>
+        </S.Div>
+        {slider && (
+          <>
+            <ArrowLeft
+              onClick={() => slider.prev()}
+              disabled={currentSlide === 0}
+            />
+            <ArrowRight
+              onClick={() => slider.next()}
+              disabled={currentSlide === slider.details().size - 1}
+            />
+          </>
+        )}
+      </div>
+    </S.CssContext>
+  )
+}
+
+export default AppCarousel
+
+function ArrowLeft(props: { disabled: boolean; onClick: MouseEventHandler }) {
+  const disabeld = props.disabled ? ' arrow--disabled' : ''
+  return (
+    <svg
+      onClick={props.onClick}
+      className={'arrow arrow--left' + disabeld}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+    </svg>
+  )
+}
+
+function ArrowRight(props: { disabled: boolean; onClick: MouseEventHandler }) {
+  const disabeld = props.disabled ? ' arrow--disabled' : ''
+  return (
+    <svg
+      onClick={props.onClick}
+      className={'arrow arrow--right' + disabeld}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+    </svg>
+  )
+}

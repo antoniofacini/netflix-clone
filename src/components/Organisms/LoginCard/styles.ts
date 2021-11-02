@@ -9,6 +9,7 @@ export const Div = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  max-width: 460px;
 `
 export const Main = styled.main`
   -webkit-box-flex: 1;

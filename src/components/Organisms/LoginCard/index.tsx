@@ -2,16 +2,42 @@ import * as S from './styles'
 import Input from '../../../components/Atoms/Input'
 import Button from '../../../components/Atoms/Button'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 
 interface IFormInputs {
   email: string
   password: string
 }
-
+interface ResponsesAxios {
+  data: {
+    token: string
+    id: string
+    name: string
+  }
+}
 const LoginCard = () => {
-  const { handleSubmit, control } = useForm<IFormInputs>()
+  //router
+  const router = useRouter()
 
-  const submitLogin: SubmitHandler<IFormInputs> = (data) => console.log(data)
+  const { handleSubmit, control } = useForm<IFormInputs>()
+  const submitLogin: SubmitHandler<IFormInputs> = (data) => {
+    try {
+      axios
+        .post('api/login', data)
+        .then((res: ResponsesAxios) => {
+          window.localStorage.setItem('token', res.data.token)
+          router.push('/profiles')
+        })
+        .catch((e) => console.log(e))
+    } catch (error) {
+      // if (axios.isAxiosError(error)) {
+      //   handleAxiosError(error)
+      // } else {
+      //   handleUnexpectedError(error)
+      // }
+    }
+  }
 
   return (
     <S.Div>
