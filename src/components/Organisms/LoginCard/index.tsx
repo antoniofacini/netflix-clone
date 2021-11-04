@@ -66,7 +66,6 @@ const LoginCard = () => {
               <Input
                 label="Email ou número de telefone"
                 type="text"
-                error={true}
                 style={{
                   border: fieldState.error ? '1px solid red' : null
                 }}

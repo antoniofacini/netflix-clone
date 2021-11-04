@@ -6,6 +6,7 @@ const secret = process.env.SECRET_COOKIE_PASSWORD
 export default withSession(async (req, res) => {
   if (req.method === 'POST') {
     const { email, password } = req.body
+    console.log(req.body)
     if (email == 'antonio@provi.com.br' && password == 'provi2021') {
       const token = jwt.sign({ email }, secret, { expiresIn: '1h' })
       const user = { isLoggedIn: true, token }
