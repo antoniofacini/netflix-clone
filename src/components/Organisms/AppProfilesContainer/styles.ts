@@ -10,27 +10,29 @@ export const Div = styled.div`
 export const Title = styled.h1`
   width: 100%;
   color: #fff;
-  font-size: 3.5vw;
+  font-size: 30px;
   font-weight: unset;
   text-align: center;
   margin: 0.67em 0;
 `
-export const ProfilesContainer = styled.div`
+export const ProfilesContainer = styled.ul`
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   width: 100%;
+
   justify-content: center;
+  list-style: none;
   margin: 1em 0;
 `
 export const Button = styled.div`
   width: fit-content;
   text-align: center;
-  margin: 4em 0 1em 0;
+  margin: 1em 0 1em 0;
   border: 1px solid #808080;
   padding: 0.5em 1.5em;
   line-height: 1.2;
   letter-spacing: 2px;
-  font-size: 1.2vw;
+  font-size: max(13px, 1.2vw);
   color: #808080;
   :hover {
     color: #e5e5e5;

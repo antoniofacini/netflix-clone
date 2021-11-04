@@ -14,6 +14,7 @@ export const Header = styled.header<HeaderProps>`
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 2;
   height: ${(p) => p.height};
 `
 export const LogoContainer = styled.div<LogoContainerProps>`

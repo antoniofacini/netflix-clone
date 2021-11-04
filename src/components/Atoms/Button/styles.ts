@@ -6,7 +6,7 @@ export interface Props {
 }
 
 export const StyledButton = styled(Button)`
-  width: min(100%, 500px);
+  width: 100%;
   font-weight: 700;
   font-size: 16px;
   text-transform: capitalize;

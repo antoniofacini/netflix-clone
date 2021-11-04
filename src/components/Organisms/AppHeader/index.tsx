@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import * as S from './styles'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { useContext } from 'react'
+import { CurrentUserContext } from '../../../contexts/currentUserContext'
 
 const AppHeader = ({
   background = 'linear-gradient(to bottom,rgba(0, 0, 0, 0.5) 0,rgba(0, 0, 0, 0) 100%)',
@@ -12,12 +15,15 @@ const AppHeader = ({
   imageMargin = '0 0 0 3%',
   scroll = 0
 }) => {
+  const [openMobileMenu, setOpenMobileMenu] = useState(false)
+  const [openUserMenu, setOpenUserMenu] = useState(false)
   const router = useRouter()
-
+  const { currentUser }: any = useContext(CurrentUserContext)
+  console.log(currentUser)
   return (
     <>
       <S.Header
-        background={scroll == 10 ? background : 'rgb(20, 20, 20)'}
+        background={scroll < 50 ? background : 'rgb(20, 20, 20)'}
         height={headerHeight}
       >
         <S.HeaderContainer>
@@ -40,13 +46,66 @@ const AppHeader = ({
                   <S.Link>Minha lista</S.Link>
                   <S.Link>Assista de novo</S.Link>
                 </S.LinksContainer>
+
+                <S.MenuLinkTrigger
+                  onClick={() => setOpenMobileMenu(true)}
+                  onMouseEnter={() => setOpenMobileMenu(true)}
+                  onMouseLeave={() => {
+                    setTimeout(() => setOpenMobileMenu(false), 1000)
+                  }}
+                >
+                  Navegar
+                </S.MenuLinkTrigger>
+                {openMobileMenu && (
+                  <S.MenuLink
+                    onMouseEnter={() => setOpenMobileMenu(true)}
+                    onMouseLeave={() => {
+                      setOpenMobileMenu(false)
+                    }}
+                  >
+                    <S.Arrow></S.Arrow>
+                    <S.TopBar></S.TopBar>
+                    <S.Link>Inicio</S.Link>
+                    <S.Link>Series</S.Link>
+                    <S.Link>Filmes</S.Link>
+                    <S.Link>Bombando</S.Link>
+                    <S.Link>Minha lista</S.Link>
+                    <S.Link>Assista de novo</S.Link>
+                  </S.MenuLink>
+                )}
               </>
             ) : null}
           </S.LeftContainer>
           <S.RightContainer>
             {router != null && router.asPath != '/profiles' ? (
               <>
-                <S.MenusContainer>Aqui</S.MenusContainer>
+                <S.MenusContainer>
+                  <S.SearchInput placeholder="Buscar" />
+                  <S.UserMenuTrigger
+                    onMouseEnter={() => setOpenUserMenu(true)}
+                    onMouseLeave={() => {
+                      setOpenUserMenu(false)
+                    }}
+                  >
+                    <Image
+                      alt={'avatar do usuario'}
+                      src={`/netflix-avatar-3.png`}
+                      width="32px"
+                      height="32px"
+                    />
+                    {currentUser.name}
+                  </S.UserMenuTrigger>
+                  {openUserMenu && (
+                    <S.MenuUser>
+                      <S.UserArrow></S.UserArrow>
+                      <S.TopBar></S.TopBar>
+                      <S.UserMenuLink>Trocar de perfil</S.UserMenuLink>
+                      <S.UserMenuLink>Conta</S.UserMenuLink>
+                      <S.UserMenuLink>Centro de Ajuda</S.UserMenuLink>
+                      <S.UserMenuLink>Sairda Netflix</S.UserMenuLink>
+                    </S.MenuUser>
+                  )}
+                </S.MenusContainer>
               </>
             ) : null}
           </S.RightContainer>

@@ -1,11 +1,11 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-
+import CurrentUserProvider from 'contexts/currentUserContext'
 import GlobalStyle from 'styles/globals'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <CurrentUserProvider>
       <Head>
         <title>ProviFlix</title>
         <link rel="shortcut icon" href="favicon.ico" />
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />
-    </>
+    </CurrentUserProvider>
   )
 }
 

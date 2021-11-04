@@ -17,7 +17,9 @@ html,body,#__next{
 body{
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
   background-color: #141414;
-
+  @media (max-width: 750px) {
+    background-color: #000000;
+ }
 }
 `
 

@@ -2,11 +2,19 @@ import styled from 'styled-components'
 import { NativeSelect, MenuItem } from '@material-ui/core'
 // import { styled as styles } from '@material-ui/core/styles'
 
-export const Footer = styled.footer`
-  background-color: rgba(0, 0, 0, 0.75);
-  min-width: 190px;
+export const FooterContainer = styled.div`
   width: 100%;
-  margin-top: 80px;
+  background-color: rgba(0, 0, 0, 0.75);
+  @media (max-width: 750px) {
+    border: 1px solid #ffffff;
+    /* padding: 60px 68px 40px; */
+  }
+`
+
+export const Footer = styled.footer`
+  min-width: 190px;
+  width: 90%;
+  margin: 80px auto 0;
   padding-bottom: 20px;
   font-size: 1em;
   color: #757575;
@@ -14,6 +22,10 @@ export const Footer = styled.footer`
 
   .MuiInput-root:after {
     border-bottom: none;
+  }
+  @media (max-width: 750px) {
+    margin: 0 auto;
+    /* padding: 60px 68px 40px; */
   }
 `
 export const FooterTop = styled.p`
@@ -63,6 +75,9 @@ export const Li = styled.li`
   width: 25%;
   padding-right: 12px;
   vertical-align: top;
+  @media (max-width: 750px) {
+    width: 33%;
+  }
 `
 export const Option = styled.option`
   font-weight: normal;
@@ -74,8 +89,8 @@ export const Option = styled.option`
 `
 export const MUISelect = styled(NativeSelect)`
   .MuiNativeSelect-outlined {
-    color: #ff0000;
-    font-size: 16px;
+    color: #757575;
+    font-size: 14px;
     padding: 6px 13px 6px 25px;
     background-color: #000;
     width: 138px;

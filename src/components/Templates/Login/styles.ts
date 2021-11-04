@@ -6,7 +6,7 @@ export const Div = styled.div`
   height: 100%;
   min-height: 100vh;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: -1;
   background-color: #000000;
@@ -20,6 +20,9 @@ export const Section = styled.section`
   margin: 0 auto -236px;
   max-width: 450px;
   z-index: 5;
+  @media (max-width: 750px) {
+    max-width: 100%;
+  }
   ::after {
     content: '';
     height: 236px;
@@ -38,7 +41,10 @@ export const Background = styled.div`
   height: 100%;
   min-height: 100vh;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  z-index: -1;
+  z-index: -2;
+  @media (max-width: 750px) {
+    display: none;
+  }
 `

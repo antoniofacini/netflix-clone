@@ -9,7 +9,11 @@ const AppAddProfile = () => {
     <S.Div onClick={() => router.push('/browse')}>
       <S.Icon>
         <AddCircleOutlinedIcon
-          style={{ color: 'grey', width: '7vw', height: '7vw' }}
+          style={{
+            color: 'grey',
+            width: 'max(6vw,50px)',
+            height: 'max(6vw,50px)'
+          }}
         />
       </S.Icon>
       <S.Texto>Adicionar perfil</S.Texto>

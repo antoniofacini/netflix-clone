@@ -2,7 +2,7 @@ import { TextField } from '@material-ui/core'
 import { styled } from '@material-ui/core/styles'
 
 export const StyledTextField = styled(TextField)`
-  width: min(500px, 100%);
+  width: 100%;
   height: 50px;
   color: #ffffff !important;
   background-color: #333333;

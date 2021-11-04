@@ -3,11 +3,11 @@ import styled from 'styled-components'
 export const Div = styled.div`
   max-width: 200px;
   max-height: 200px;
-  height: 10vw;
-  width: 10vw;
+  height: max(10vw, 84px);
+  width: max(10vw, 84px);
   text-align: center;
   position: relative;
-  margin: 0 2vw 0 0;
+  margin: 0 2vw 5em 0;
   .hover-border {
     position: absolute;
     top: 0;
@@ -38,5 +38,5 @@ export const Div = styled.div`
 export const Texto = styled.p`
   margin-top: 10px;
   color: #808080;
-  font-size: 1.3vw;
+  font-size: max(1.3vw, 12px);
 `

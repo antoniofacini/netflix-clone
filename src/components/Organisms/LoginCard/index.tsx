@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import * as S from './styles'
 import Input from '../../../components/Atoms/Input'
 import Button from '../../../components/Atoms/Button'
@@ -17,6 +18,11 @@ interface ResponsesAxios {
   }
 }
 const LoginCard = () => {
+  const [error, setError] = useState(undefined)
+  const wrongPassword =
+    'Desculpe, email ou senha inválido(s). Verifique os dados preenchidos.'
+  const genericError =
+    'Ops encontramos um error, tente novamente mais tarde ou entre em contato com o suporte.'
   //router
   const router = useRouter()
 
@@ -29,7 +35,10 @@ const LoginCard = () => {
           window.localStorage.setItem('token', res.data.token)
           router.push('/profiles')
         })
-        .catch((e) => console.log(e))
+        .catch((e) => {
+          setError(e.response.status)
+          console.log(e)
+        })
     } catch (error) {
       // if (axios.isAxiosError(error)) {
       //   handleAxiosError(error)
@@ -44,14 +53,23 @@ const LoginCard = () => {
       <S.Main>
         <S.Title>Entrar</S.Title>
         <form onSubmit={handleSubmit(submitLogin)}>
+          {error && (
+            <S.Error>{error == '401' ? wrongPassword : genericError}</S.Error>
+          )}
+
           <Controller
             name="email"
             control={control}
             defaultValue=""
-            render={({ field }) => (
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
               <Input
                 label="Email ou número de telefone"
                 type="text"
+                error={true}
+                style={{
+                  border: fieldState.error ? '1px solid red' : null
+                }}
                 {...field}
               />
             )}
@@ -61,8 +79,16 @@ const LoginCard = () => {
             name="password"
             control={control}
             defaultValue=""
-            render={({ field }) => (
-              <Input label="Senha" type="password" {...field} />
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
+              <Input
+                label="Senha"
+                type="password"
+                style={{
+                  border: fieldState.error ? '1px solid red' : null
+                }}
+                {...field}
+              />
             )}
           />
 
