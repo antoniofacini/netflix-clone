@@ -6,13 +6,6 @@ import { useKeenSlider } from 'keen-slider/react'
 import { MouseEventHandler } from 'react-transition-group/node_modules/@types/react'
 import { MovieList } from '../../../lib/utils/movies-asset'
 
-interface AppCardProps {
-  cover: string
-  genders: Array<string>
-  relevance: string
-  duration: string
-}
-
 const AppCarousel = (props: { title: string }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
