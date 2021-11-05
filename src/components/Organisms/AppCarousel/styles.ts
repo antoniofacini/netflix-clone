@@ -4,6 +4,7 @@ export const CssContext = styled.div`
   margin: 3vw 0;
   .navigation-wrapper {
     position: relative;
+    height: fit-content;
   }
 
   .dots {
@@ -29,8 +30,8 @@ export const CssContext = styled.div`
     background: #000;
   }
   .arrow {
-    width: 40px;
-    height: 80%;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -39,15 +40,6 @@ export const CssContext = styled.div`
     cursor: pointer;
     z-index: 2;
     transition: 0.3s;
-
-    :hover {
-      /* background-color: rgba(0, 0, 0, 0.5); */
-      background-image: radial-gradient(
-        rgba(0, 0, 0, 0.5) 15%,
-        rgba(0, 0, 0, 0.1) 100%,
-        rgba(0, 0, 0, 0.2) 5%
-      );
-    }
   }
 
   .arrow--left {
@@ -58,10 +50,14 @@ export const CssContext = styled.div`
     left: auto;
     right: 0px;
   }
+  @media (max-width: 767px) {
+    margin: 2vh 0;
+  }
 `
 
 export const Div = styled.div`
   overflow: visible !important;
+
   width: 100%;
   :hover {
     position: relative;
@@ -69,16 +65,18 @@ export const Div = styled.div`
 `
 export const Slide = styled.div`
   width: 20%;
+
   overflow: visible !important;
   :hover {
     z-index: 1;
   }
 `
 export const Title = styled.h2`
+  margin-bottom: 10px;
   display: table-cell;
   vertical-align: bottom;
   line-height: 1.25vw;
-  font-size: 1.4vw;
+  font-size: 1.4em;
   color: #e5e5e5;
   cursor: pointer;
   :hover {

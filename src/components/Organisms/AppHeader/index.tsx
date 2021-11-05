@@ -89,11 +89,11 @@ const AppHeader = ({
                   >
                     <Image
                       alt={'avatar do usuario'}
-                      src={`/netflix-avatar-3.png`}
+                      src={`/netflix-avatar-${currentUser.id}.png`}
                       width="32px"
                       height="32px"
                     />
-                    {currentUser.name}
+                    <S.UserName>{currentUser.name}</S.UserName>
                   </S.UserMenuTrigger>
                   {openUserMenu && (
                     <S.MenuUser>

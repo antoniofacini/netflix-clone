@@ -5,7 +5,7 @@ import Button from '../../../components/Atoms/Button'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-import useUser from 'lib/useUser'
+import useUser from '../../../lib/useUser'
 
 interface IFormInputs {
   email: string

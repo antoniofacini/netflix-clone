@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 export const AppCardContainer = styled.div`
-  margin-top: 10px;
   position: relative;
   width: 100%;
-  max-height: 20vh;
+  max-height: 16vh;
   border-radius: 4px;
   transition-delay: 0.3s;
   transition-property: transform, opacity, -webkit-transform, -moz-transform,
@@ -18,6 +17,9 @@ export const AppCardContainer = styled.div`
     min-height: 26px;
     max-width: 32px;
     max-height: 32px;
+    @media (max-width: 568px) {
+      transform: scale(0.7);
+    }
   }
 
   .roundedIconClass {
@@ -27,6 +29,9 @@ export const AppCardContainer = styled.div`
     max-height: 13px;
     color: #fff;
     font-size: 1px;
+    @media (max-width: 568px) {
+      transform: scale(0.7);
+    }
   }
   :hover {
     transform: scale(150%);
@@ -34,7 +39,7 @@ export const AppCardContainer = styled.div`
       transition-duration: 0;
     }
     .content {
-      transform: translateY(12vh);
+      transform: translateY(11.7vh);
     }
   }
 `
@@ -56,22 +61,37 @@ export const Content = styled.div`
   transition-duration: 0.4s, 0.4s, 0.4s, 0.4s, 0.4s;
   transition-timing-function: ease, ease, ease, ease, ease;
   z-index: -1;
+  @media (max-width: 568px) {
+    top: -12vh;
+    padding: 0px 7px;
+  }
 `
 export const ContentButtons = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 568px) {
+    align-items: flex-start;
+    max-height: 24px;
+  }
 `
+
 export const Circle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 2.7em;
+  height: 2.7em;
   min-width: 22px;
   min-height: 22px;
   max-width: 28px;
   max-height: 28px;
   outline: 1px solid #fff;
   outline-offset: -3px;
-  border-radius: 50%;
+  border-radius: 100%;
+  @media (max-width: 568px) {
+    transform: scale(0.7);
+  }
 `
 export const ExpandMore = styled.div`
   border-radius: 100%;
@@ -82,11 +102,17 @@ export const ExpandMore = styled.div`
   display: flex;
   justify-content: center;
   border: 1px solid #e5e5e5;
+  @media (max-width: 568px) {
+    transform: scale(0.5);
+  }
 `
 
 export const Relevance = styled.span`
   font-size: 14px;
   color: #46d369;
+  @media (max-width: 568px) {
+    font-size: 0.8em;
+  }
 `
 export const Age = styled.span`
   width: 26px;
@@ -98,10 +124,16 @@ export const Age = styled.span`
   border-radius: 4px;
   color: #fff;
   font-size: 12px;
+  @media (max-width: 568px) {
+    transform: scale(0.7);
+  }
 `
 export const Duration = styled.span`
-  font-size: 14px;
+  font-size: 1em;
   color: #fff;
+  @media (max-width: 568px) {
+    font-size: 0.8em;
+  }
 `
 export const ContentText = styled.div`
   margin-top: 0.5vw;
@@ -111,8 +143,11 @@ export const ContentText = styled.div`
 `
 export const Gender = styled.span`
   padding-right: 0.5vh;
-  font-size: 12px;
+  font-size: 10px;
   color: #fff;
+  @media (max-width: 568px) {
+    font-size: 0.8em;
+  }
 `
 export const Genders = styled.div`
   margin-top: 1vh;

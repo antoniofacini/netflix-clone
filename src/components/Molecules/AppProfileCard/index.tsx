@@ -13,6 +13,7 @@ const AppProfileCard = (props: { profile: CurrentUser }) => {
   const { setCurrentUser }: any = useContext(CurrentUserContext)
   //router
   const router = useRouter()
+
   return (
     <S.Div
       onClick={() => {

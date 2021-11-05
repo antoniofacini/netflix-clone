@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import * as S from './styles'
 import ReactPlayer from 'react-player'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
@@ -24,10 +25,10 @@ const AppMainIntro = (props: any) => {
     }
   }, [])
 
-  useEffect(() => {
-    scrollPosition > 300 && setPlaying(false)
-    pausedByButton == false && scrollPosition < 100 && setPlaying(true)
-  }, [scrollPosition])
+  // useEffect(() => {
+  //   scrollPosition > 300 && setPlaying(false)
+  //   pausedByButton == false && scrollPosition < 100 && setPlaying(true)
+  // }, [scrollPosition])
 
   return (
     <S.VideoWrapper>
@@ -38,16 +39,33 @@ const AppMainIntro = (props: any) => {
         width="100%"
         height="150%"
       />
+      <S.IntroContent>
+        <Image
+          src={'/deadpool.png'}
+          layout="responsive"
+          height="100vw"
+          width="100vw"
+          alt={'deadpool-character'}
+        />
+        <S.IntroText>
+          Baseado na história do anti-herói menos convencional da Marvel
+        </S.IntroText>
+      </S.IntroContent>
       <S.ButtonsContainer>
         {playing ? (
-          <PauseIcon onClick={() => {
-              setPlaying(!playing) 
-              setPausedByButton(true)}} />
+          <PauseIcon
+            onClick={() => {
+              setPlaying(!playing)
+              setPausedByButton(true)
+            }}
+          />
         ) : (
-          <PlayArrowIcon onClick={() => {
+          <PlayArrowIcon
+            onClick={() => {
               setPlaying(!playing)
               setPausedByButton(false)
-            }} />
+            }}
+          />
         )}
         {muted ? (
           <VolumeOffIcon onClick={() => setMuted(!muted)} />

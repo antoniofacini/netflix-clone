@@ -19,6 +19,9 @@ const AppCarousel = (props: { title: string }) => {
     loop: true,
     breakpoints: {
       '(min-width: 768px)': {
+        slidesPerView: 3
+      },
+      '(min-width: 950px)': {
         slidesPerView: 4
       },
       '(min-width: 1200px)': {
@@ -28,25 +31,25 @@ const AppCarousel = (props: { title: string }) => {
   })
   return (
     <S.CssContext>
-      <div className="navigation-wrapper">
-        {slider && (
-          <div className="dots">
-            <S.Title>{props.title}</S.Title>
-            <div>
-              {[...Array(slider.details().size).keys()].map((idx) => {
-                return (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      slider.moveToSlideRelative(idx)
-                    }}
-                    className={'dot' + (currentSlide === idx ? ' active' : '')}
-                  />
-                )
-              })}
-            </div>
+      {slider && (
+        <div className="dots">
+          <S.Title>{props.title}</S.Title>
+          <div>
+            {[...Array(slider.details().size).keys()].map((idx) => {
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    slider.moveToSlideRelative(idx)
+                  }}
+                  className={'dot' + (currentSlide === idx ? ' active' : '')}
+                />
+              )
+            })}
           </div>
-        )}
+        </div>
+      )}
+      <div className="navigation-wrapper">
         <S.Div ref={sliderRef} className="keen-slider">
           {MovieList.map(
             ({ cover, genders, duration, relevance }, key: number) => {

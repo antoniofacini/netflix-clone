@@ -20,6 +20,9 @@ export const Header = styled.header<HeaderProps>`
   display: flex;
   align-items: center;
   z-index: 5;
+  @media (max-width: 680px) {
+    height: 50px;
+  }
 `
 export const HeaderContainer = styled.div`
   display: flex;
@@ -124,6 +127,14 @@ export const UserMenuTrigger = styled.a`
   width: 90px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 580px) {
+    width: 30px;
+  }
+`
+export const UserName = styled.span`
+  @media (max-width: 580px) {
+    display: none;
+  }
 `
 export const MenuUser = styled.div`
   height: 100px;
@@ -165,6 +176,10 @@ export const SearchInput = styled.input`
   width: 10em;
   border: 1px solid #ccc;
   color: #ccc;
+  @media (max-width: 580px) {
+    width: 7em;
+    font-size: 1em;
+  }
 `
 
 export const Link = styled.a`

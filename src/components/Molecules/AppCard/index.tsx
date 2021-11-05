@@ -20,12 +20,12 @@ const AppCard = (props: AppCardProps) => {
       <Image
         src={`/covers/${props.cover}`}
         layout="responsive"
-        width="275px"
-        height="179px"
+        width="16vw"
+        height="9vw"
       />
       <S.Content className="content">
         <S.ContentButtons>
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', height: '30px' }}>
             <PlayCircleFilledWhiteIcon className="iconClass" />
             <AddCircleOutlineIcon className="iconClass" />
             <S.Circle>
