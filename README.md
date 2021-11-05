@@ -1,7 +1,7 @@
 # Clone - Netflix Desktop App
 
-Node.js >12.22.0 
-Yarn
+    Node.js >12.22.0 
+    Yarn
 
 # Bibliotecas
     Storybook
