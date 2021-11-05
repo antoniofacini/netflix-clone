@@ -25,10 +25,10 @@ const AppMainIntro = (props: any) => {
     }
   }, [])
 
-  // useEffect(() => {
-  //   scrollPosition > 300 && setPlaying(false)
-  //   pausedByButton == false && scrollPosition < 100 && setPlaying(true)
-  // }, [scrollPosition])
+  useEffect(() => {
+    scrollPosition > 300 && setPlaying(false)
+    pausedByButton == false && scrollPosition < 100 && setPlaying(true)
+  }, [scrollPosition])
 
   return (
     <S.VideoWrapper>

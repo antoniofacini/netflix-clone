@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const AppCardContainer = styled.div`
   position: relative;
   width: 100%;
+  max-width: 500px;
   max-height: 16vh;
   border-radius: 4px;
   transition-delay: 0.3s;
@@ -39,7 +40,7 @@ export const AppCardContainer = styled.div`
       transition-duration: 0;
     }
     .content {
-      transform: translateY(11.7vh);
+      transform: translateY(100px);
     }
   }
 `
@@ -47,14 +48,14 @@ export const AppCardContainer = styled.div`
 export const Content = styled.div`
   box-sizing: border-box;
   padding: 10px 5px;
-  height: 12vh;
+  height: 100px;
   background-color: #181818;
   width: 100%;
   position: relative;
   left: 0;
   right: 0;
   bottom: 0;
-  top: -12vh;
+  top: -100px;
   /* transition-delay: 0.3s; */
   transition-property: transform, opacity, -webkit-transform, -moz-transform,
     -o-transform;
@@ -62,7 +63,6 @@ export const Content = styled.div`
   transition-timing-function: ease, ease, ease, ease, ease;
   z-index: -1;
   @media (max-width: 568px) {
-    top: -12vh;
     padding: 0px 7px;
   }
 `

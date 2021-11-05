@@ -9,7 +9,11 @@ export interface CurrentUser {
   name: string
 }
 
-const AppProfileCard = (props: { profile: CurrentUser }) => {
+const AppProfileCard = ({
+  profile = { name: 'Antonio', id: 1 }
+}: {
+  profile: CurrentUser
+}) => {
   const { setCurrentUser }: any = useContext(CurrentUserContext)
   //router
   const router = useRouter()
@@ -17,18 +21,18 @@ const AppProfileCard = (props: { profile: CurrentUser }) => {
   return (
     <S.Div
       onClick={() => {
-        setCurrentUser(props.profile)
+        setCurrentUser(profile)
         router.push('/browse')
       }}
     >
       <Image
-        src={`/netflix-avatar-${props.profile.id}.png`}
+        src={`/netflix-avatar-${profile.id}.png`}
         layout="responsive"
         width="84px"
         height="84px"
       />
       <div className="hover-border"></div>
-      <S.Texto>{props.profile.name}</S.Texto>
+      <S.Texto>{profile.name}</S.Texto>
     </S.Div>
   )
 }

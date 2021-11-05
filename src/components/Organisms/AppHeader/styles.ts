@@ -60,6 +60,7 @@ export const MenuLinkTrigger = styled.a`
   color: #fff;
   margin-left: 18px;
   position: relative;
+  cursor: pointer;
   :after {
     position: absolute;
     bottom: 4px;
@@ -93,7 +94,7 @@ export const MenuLink = styled.div`
   font-size: 13px;
   line-height: 21px;
   border: solid 1px rgba(255, 255, 255, 0.15);
-  cursor: default;
+  cursor: pointer;
 `
 export const Arrow = styled.div`
   position: absolute;
@@ -153,7 +154,7 @@ export const MenuUser = styled.div`
   font-size: 13px;
   line-height: 21px;
   border: solid 1px rgba(255, 255, 255, 0.15);
-  cursor: default;
+  cursor: pointer;
 `
 
 export const UserArrow = styled.div`

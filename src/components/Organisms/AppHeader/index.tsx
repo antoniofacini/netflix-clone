@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import * as S from './styles'
 import Image from 'next/image'
+import axios from 'axios'
 import { useRouter } from 'next/router'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { CurrentUserContext } from '../../../contexts/currentUserContext'
 
 const AppHeader = ({
@@ -19,7 +20,9 @@ const AppHeader = ({
   const [openUserMenu, setOpenUserMenu] = useState(false)
   const router = useRouter()
   const { currentUser }: any = useContext(CurrentUserContext)
+  //out click ref
 
+  const handleExit = () => axios.post('/api/logout')
   return (
     <>
       <S.Header
@@ -48,21 +51,12 @@ const AppHeader = ({
                 </S.LinksContainer>
 
                 <S.MenuLinkTrigger
-                  onClick={() => setOpenMobileMenu(true)}
-                  onMouseEnter={() => setOpenMobileMenu(true)}
-                  onMouseLeave={() => {
-                    setTimeout(() => setOpenMobileMenu(false), 1000)
-                  }}
+                  onClick={() => setOpenMobileMenu(!openMobileMenu)}
                 >
                   Navegar
                 </S.MenuLinkTrigger>
                 {openMobileMenu && (
-                  <S.MenuLink
-                    onMouseEnter={() => setOpenMobileMenu(true)}
-                    onMouseLeave={() => {
-                      setOpenMobileMenu(false)
-                    }}
-                  >
+                  <S.MenuLink>
                     <S.Arrow></S.Arrow>
                     <S.TopBar></S.TopBar>
                     <S.Link>Inicio</S.Link>
@@ -82,10 +76,7 @@ const AppHeader = ({
                 <S.MenusContainer>
                   <S.SearchInput placeholder="Buscar" />
                   <S.UserMenuTrigger
-                    onMouseEnter={() => setOpenUserMenu(true)}
-                    onMouseLeave={() => {
-                      setOpenUserMenu(false)
-                    }}
+                    onClick={() => setOpenUserMenu(!openUserMenu)}
                   >
                     <Image
                       alt={'avatar do usuario'}
@@ -102,7 +93,9 @@ const AppHeader = ({
                       <S.UserMenuLink>Trocar de perfil</S.UserMenuLink>
                       <S.UserMenuLink>Conta</S.UserMenuLink>
                       <S.UserMenuLink>Centro de Ajuda</S.UserMenuLink>
-                      <S.UserMenuLink>Sairda Netflix</S.UserMenuLink>
+                      <S.UserMenuLink onClick={() => handleExit()}>
+                        Sair da Netflix
+                      </S.UserMenuLink>
                     </S.MenuUser>
                   )}
                 </S.MenusContainer>

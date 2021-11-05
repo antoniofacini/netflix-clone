@@ -14,11 +14,16 @@ interface AppCardProps {
   duration: string
 }
 
-const AppCard = (props: AppCardProps) => {
+const AppCard = ({
+  cover = '/covers/black-panther.jpg',
+  genders = ['Action', 'Horror'],
+  relevance = '94',
+  duration = '1h 35min'
+}) => {
   return (
     <S.AppCardContainer>
       <Image
-        src={`/covers/${props.cover}`}
+        src={`/covers/${cover}`}
         layout="responsive"
         width="16vw"
         height="9vw"
@@ -40,13 +45,13 @@ const AppCard = (props: AppCardProps) => {
           </S.ExpandMore>
         </S.ContentButtons>
         <S.ContentText>
-          <S.Relevance>{props.relevance} relevante</S.Relevance>
+          <S.Relevance>{relevance} relevante</S.Relevance>
           <S.Age>16</S.Age>
-          <S.Duration>{props.duration} </S.Duration>
+          <S.Duration>{duration} </S.Duration>
           <HdRoundedIcon className="iconClass" />
         </S.ContentText>
         <S.Genders />
-        {props.genders.map((gender, key: number) => (
+        {genders.map((gender, key: number) => (
           <S.Gender key={key}>{gender}</S.Gender>
         ))}
       </S.Content>

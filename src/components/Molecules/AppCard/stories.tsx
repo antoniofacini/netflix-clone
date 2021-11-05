@@ -8,7 +8,13 @@ interface AppCardProps {
 }
 export default {
   title: 'AppCard',
-  component: AppCard
+  component: AppCard,
+  args: {
+    cover: 'black-panther.jpg',
+    genders: ['Action', 'Horror'],
+    relevance: '94',
+    duration: '1h 35min'
+  }
 } as Meta
 
 export const Basic: Story<AppCardProps> = (args) => <AppCard {...args} />

@@ -6,7 +6,7 @@ export const FooterContainer = styled.div`
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   @media (max-width: 750px) {
-    border: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
     /* padding: 60px 68px 40px; */
   }
 `
