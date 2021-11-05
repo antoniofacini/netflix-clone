@@ -41,6 +41,9 @@ export const AppCardContainer = styled.div`
     }
     .content {
       transform: translateY(100px);
+      @media (max-width: 400px) {
+        transform: translateY(80px);
+      }
     }
   }
 `
@@ -64,6 +67,10 @@ export const Content = styled.div`
   z-index: -1;
   @media (max-width: 568px) {
     padding: 0px 7px;
+  }
+  @media (max-width: 400px) {
+    height: 75px;
+    top: -80px;
   }
 `
 export const ContentButtons = styled.div`

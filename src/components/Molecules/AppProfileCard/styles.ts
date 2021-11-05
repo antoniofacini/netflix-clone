@@ -16,8 +16,8 @@ export const Div = styled.div`
     left: 0;
     max-width: 200px;
     max-height: 200px;
-    height: 10vw;
-    width: 10vw;
+    height: max(10vw, 84px);
+    width: max(10vw, 84px);
   }
   :hover {
     .hover-border {
