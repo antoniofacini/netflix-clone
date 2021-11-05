@@ -1,5 +1,5 @@
 import { withIronSession } from 'next-iron-session'
-console.log(process.env.SECRET_COOKIE_PASSWORD)
+
 export default function withSession(handler) {
   return withIronSession(handler, {
     password: process.env.SECRET_COOKIE_PASSWORD,

@@ -12,7 +12,8 @@ export default withSession(async (req, res) => {
     })
   } else {
     res.json({
-      isLoggedIn: false
+      isLoggedIn: false,
+      email: ''
     })
   }
 })

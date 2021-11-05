@@ -16,6 +16,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/logout"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/logout", "src/pages/api/user.js", "src/pages/api/logout.js", "src/pages/api/login.js"],
   "exclude": ["node_modules"]
 }

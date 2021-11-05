@@ -1,10 +1,14 @@
 // import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import * as S from './styles'
-// import useUser from '../../../lib/useUser'
+import useUser from '../../../lib/useUser'
 import AppHeader from '../../Organisms/AppHeader'
 const AppTemplate = (props: any) => {
-  //   const { user } = useUser({ redirectTo: '/' })
+  const { user } = useUser({
+    redirectTo: '/',
+    redirectIfFound: false
+  })
+
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
     const position = window.pageYOffset

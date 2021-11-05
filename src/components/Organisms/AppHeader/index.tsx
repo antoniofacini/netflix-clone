@@ -19,7 +19,7 @@ const AppHeader = ({
   const [openUserMenu, setOpenUserMenu] = useState(false)
   const router = useRouter()
   const { currentUser }: any = useContext(CurrentUserContext)
-  console.log(currentUser)
+
   return (
     <>
       <S.Header

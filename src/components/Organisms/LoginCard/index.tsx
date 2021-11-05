@@ -5,6 +5,7 @@ import Button from '../../../components/Atoms/Button'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import useUser from 'lib/useUser'
 
 interface IFormInputs {
   email: string
@@ -26,25 +27,21 @@ const LoginCard = () => {
   //router
   const router = useRouter()
 
+  const { mutateUser } = useUser({
+    redirectTo: '/profiles',
+    redirectIfFound: true
+  })
+
   const { handleSubmit, control } = useForm<IFormInputs>()
-  const submitLogin: SubmitHandler<IFormInputs> = (data) => {
+  const submitLogin: SubmitHandler<IFormInputs> = async (data) => {
     try {
-      axios
-        .post('api/login', data)
-        .then((res: ResponsesAxios) => {
-          window.localStorage.setItem('token', res.data.token)
-          router.push('/profiles')
-        })
-        .catch((e) => {
-          setError(e.response.status)
-          console.log(e)
-        })
-    } catch (error) {
-      // if (axios.isAxiosError(error)) {
-      //   handleAxiosError(error)
-      // } else {
-      //   handleUnexpectedError(error)
-      // }
+      const response = await axios.post('api/login', data)
+      if (response.data) {
+        await mutateUser(response.data)
+      }
+    } catch (error: any) {
+      setError(error)
+      console.log(error)
     }
   }
 
