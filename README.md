@@ -4,17 +4,17 @@ Node.js >12.22.0
 Yarn
 
 # Bibliotecas
-Storybook
-Jwt
-Jest
-Husky
-Keen-Slider
-StyledComponents
-next-iron-session
-axios
-Material-ui
-Context-API
-SWR
+    Storybook
+    Jwt
+    Jest
+    Husky
+    Keen-Slider
+    StyledComponents
+    next-iron-session
+    axios
+    Material-ui
+    Context-API
+    SWR
 
 ## Instalando o projeto
 
