@@ -27,17 +27,17 @@
     yarn build
     yarn start
 
-Ira executar o app na porta padrao [http://localhost:3000](http://localhost:3000)
+Irá executar o app na porta padrão [http://localhost:3000](http://localhost:3000)
 
 ## Iniciando o storybook
 
     yarn storybook
 
-Ira iniciar o storybook no padrao do app[http://localhost:6006/](http://localhost:6006/)
+Irá iniciar o storybook no padrão do app[http://localhost:6006/](http://localhost:6006/)
 
 
-## Acessando paginas protegidas
+## Acessando páginas protegidas
 
-Para acessar o app utilize o login e senha nos seguintes padroes:
+Para acessar o app utilize o login e senha nos seguintes padrões:
         email:antonio@provi.com.br
         senha:provi2021
